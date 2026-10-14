@@ -16,6 +16,7 @@ async function setup(search=''){
  globalThis.setInterval=()=>0;
  globalThis.fetch=async(url,options)=>{
   calls.push([String(url),options?.method]);
+  if(String(url).includes('/api/linkedin'))return {ok:true,json:async()=>({social:[],candidates:[],coverage:{platform:'LinkedIn',status:'limited',detail:'Test public check'}})};
   if(String(url).includes('/api/register'))return {ok:true,json:async()=>({scheduled:true})};
   if(String(url).includes('/api/track')){
    const article={id:'new',url:new URL(String(url),'https://test.org').searchParams.get('url'),publisher:'example.org',title:'New article',sources:[]};
@@ -45,4 +46,13 @@ test('URL form saves new article, collects it and creates a direct link',async()
  assert.equal(new URLSearchParams(location.search).get('url'),'https://example.org/story?id=42');
  assert.equal(new URL(ids['share-url'].value).searchParams.get('url'),'https://example.org/story?id=42');
  assert.equal(ids.track.disabled,false);
+});
+
+test('LinkedIn form submits a post against the selected article and refreshes public checks',async()=>{
+ const article=saved.articles[0],{ids,calls}=await setup('?'+new URLSearchParams({url:article.url}));
+ ids['linkedin-url'].value='https://www.linkedin.com/posts/example_activity-123456789-test';
+ await ids['linkedin-form'].onsubmit({preventDefault(){}});
+ assert.ok(calls.some(([url,method])=>url==='/api/linkedin'&&method==='POST'));
+ assert.ok(calls.some(([url,method])=>url.startsWith('/api/linkedin?')&&!method));
+ assert.equal(ids['linkedin-url'].value,'');assert.equal(ids['linkedin-add'].disabled,false);
 });

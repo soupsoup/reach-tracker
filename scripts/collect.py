@@ -63,11 +63,17 @@ def collect(article):
             try:
                 posts,state=future.result(); social+=posts; health.append(state)
             except Exception as e: health.append({'platform':name,'status':'unavailable','detail':str(e)[:180]})
-    health += [{'platform':p,'status':'unavailable','detail':'No authorized analytics or reliable public collector configured; missing results do not mean zero.'} for p in ['X','LinkedIn','Facebook','Reddit']]
+    linkedin_candidates=[]
+    try:
+        li=json.loads(fetch('https://reach-tracker-jade.vercel.app/api/linkedin?'+urlencode({'url':target})))
+        social+=li['social']; health.append(li['coverage']); linkedin_candidates=li['candidates']
+    except Exception as e:
+        health.append({'platform':'LinkedIn','status':'unavailable','detail':str(e)[:180]})
+    health += [{'platform':p,'status':'unavailable','detail':'No authorized analytics or reliable public collector configured; missing results do not mean zero.'} for p in ['X','Facebook','Reddit']]
     health.append({'platform':'Publisher readership','status':'private','detail':'Publisher pageviews, unique readers and impressions are private. No audience estimate is calculated.'})
     if not rows:
         health.append({'platform':'Media and syndication','status':'unavailable','detail':'No verified source pages registered for this URL yet. Social collection does not provide comprehensive media discovery.'})
-    return {'id':article['id'],'sources':rows,'social':social,'coverage':health}
+    return {'id':article['id'],'sources':rows,'social':social,'coverage':health,'linkedinCandidates':linkedin_candidates}
 def run():
     articles=json.loads((ROOT/'data/articles.json').read_text())
     # New URLs saved through the public dashboard automatically join scheduled collection.
