@@ -1,5 +1,9 @@
 """Public, bounded discovery. Absence never means zero global reach."""
-import json, re, html, hashlib
+import json, re, html, hashlib, os
+try:
+    from .x_collect import collect_x, RequestBudget
+except ImportError:
+    from x_collect import collect_x, RequestBudget
 from pathlib import Path
 from datetime import datetime, timezone
 from urllib.request import Request, urlopen
@@ -69,7 +73,7 @@ def collect(article):
         social+=li['social']; health.append(li['coverage']); linkedin_candidates=li['candidates']
     except Exception as e:
         health.append({'platform':'LinkedIn','status':'unavailable','detail':str(e)[:180]})
-    health += [{'platform':p,'status':'unavailable','detail':'No authorized analytics or reliable public collector configured; missing results do not mean zero.'} for p in ['X','Facebook','Reddit']]
+    health += [{'platform':p,'status':'unavailable','detail':'No authorized analytics or reliable public collector configured; missing results do not mean zero.'} for p in ['Facebook','Reddit']]
     health.append({'platform':'Publisher readership','status':'private','detail':'Publisher pageviews, unique readers and impressions are private. No audience estimate is calculated.'})
     if not rows:
         health.append({'platform':'Media and syndication','status':'unavailable','detail':'No verified source pages registered for this URL yet. Social collection does not provide comprehensive media discovery.'})
@@ -86,6 +90,15 @@ def run():
     (ROOT/'data/articles.json').write_text(json.dumps(articles,indent=2)+'\n')
     with ThreadPoolExecutor(max_workers=4) as pool:
         observations=list(pool.map(collect, articles))
+    try:
+        x_limit=int(os.environ.get('X_MONTHLY_REQUEST_LIMIT','1500') or '1500')
+    except ValueError:
+        x_limit=1500
+    budget=RequestBudget(ROOT/'data/x-usage.json',x_limit)
+    # Sequential X calls make the per-run and persisted monthly limits deterministic.
+    for article, observation in zip(articles,observations):
+        posts,coverage=collect_x(article,budget)
+        observation['social']+=posts; observation['coverage'].append(coverage)
     snapshot={'collectedAt':NOW,'articles':observations,'schemaVersion':1}
     folder=ROOT/'data/snapshots'; folder.mkdir(exist_ok=True)
     (folder/(NOW.replace(':','-')+'.json')).write_text(json.dumps(snapshot,indent=2)+'\n')
