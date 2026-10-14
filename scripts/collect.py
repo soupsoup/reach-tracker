@@ -3,17 +3,20 @@ import json, re, html, hashlib
 from pathlib import Path
 from datetime import datetime, timezone
 from urllib.request import Request, urlopen
-from urllib.parse import urlencode, urlsplit
+from urllib.parse import urlencode, urlsplit, parse_qsl
 from concurrent.futures import ThreadPoolExecutor
 ROOT = Path(__file__).resolve().parents[1]
 def canonical(url):
     p = urlsplit(url)
-    return (p.hostname or '').removeprefix('www.') + p.path.rstrip('/')
+    query = urlencode([(k,v) for k,v in parse_qsl(p.query, keep_blank_values=True)
+                       if not k.lower().startswith('utm_') and k.lower() not in ['fbclid','gclid','mc_cid','mc_eid']])
+    return (p.hostname or '').removeprefix('www.') + p.path.rstrip('/') + ('?' + query if query else '')
 def fetch(url):
     with urlopen(Request(url, headers={'User-Agent':'reach-tracker/1.0 (public source monitoring)'}), timeout=20) as r:
         return r.read(3000000).decode('utf-8', errors='replace')
 def linked(post, target):
-    urls = [post.get('record',{}).get('embed',{}).get('external',{}).get('uri','')]
+    embed = post.get('record',{}).get('embed',{})
+    urls = [embed.get('external',{}).get('uri',''), embed.get('media',{}).get('external',{}).get('uri','')]
     for facet in post.get('record',{}).get('facets',[]):
         urls += [f.get('uri','') for f in facet.get('features',[])]
     return any(canonical(u) == canonical(target) for u in urls if u)
@@ -61,10 +64,22 @@ def collect(article):
                 posts,state=future.result(); social+=posts; health.append(state)
             except Exception as e: health.append({'platform':name,'status':'unavailable','detail':str(e)[:180]})
     health += [{'platform':p,'status':'unavailable','detail':'No authorized analytics or reliable public collector configured; missing results do not mean zero.'} for p in ['X','LinkedIn','Facebook','Reddit']]
-    health.append({'platform':'NYT readership','status':'private','detail':'Publisher pageviews, unique readers and impressions are private. No audience estimate is calculated.'})
+    health.append({'platform':'Publisher readership','status':'private','detail':'Publisher pageviews, unique readers and impressions are private. No audience estimate is calculated.'})
+    if not rows:
+        health.append({'platform':'Media and syndication','status':'unavailable','detail':'No verified source pages registered for this URL yet. Social collection does not provide comprehensive media discovery.'})
     return {'id':article['id'],'sources':rows,'social':social,'coverage':health}
 def run():
-    articles=json.loads((ROOT/'data/articles.json').read_text()); observations=[collect(a) for a in articles]
+    articles=json.loads((ROOT/'data/articles.json').read_text())
+    # New URLs saved through the public dashboard automatically join scheduled collection.
+    # Fail loudly if registry discovery fails; preserve all previously registered articles.
+    registry=json.loads(fetch('https://reach-tracker-jade.vercel.app/api/registry'))
+    known={canonical(a['url']) for a in articles}
+    for article in registry['articles']:
+        if canonical(article['url']) not in known:
+            articles.append(article); known.add(canonical(article['url']))
+    (ROOT/'data/articles.json').write_text(json.dumps(articles,indent=2)+'\n')
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        observations=list(pool.map(collect, articles))
     snapshot={'collectedAt':NOW,'articles':observations,'schemaVersion':1}
     folder=ROOT/'data/snapshots'; folder.mkdir(exist_ok=True)
     (folder/(NOW.replace(':','-')+'.json')).write_text(json.dumps(snapshot,indent=2)+'\n')

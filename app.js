@@ -1,4 +1,5 @@
-let data, selected;
+import { normalizeInput, articleKey, shareUrl } from './url-utils.js';
+let data, selected, activeUrl, loadGeneration=0;
 const $=id=>document.getElementById(id);
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
 function link(text,url){const n=el('a',text);try{const u=new URL(url);if(u.protocol==='https:'){n.href=u.href;n.target='_blank';n.rel='noopener noreferrer';}}catch{}return n;}
@@ -7,14 +8,47 @@ const score=p=>['likes','comments','reposts'].reduce((s,k)=>s+(Number.isFinite(p
 function count(a){return {social:a.social.length,verified:a.sources.filter(s=>s.status==='verified').length,syndication:a.sources.filter(s=>s.status==='verified'&&s.kind==='syndication').length};}
 function render(){
  const article=data.articles.find(a=>a.id===selected),obs=data.snapshot.articles.find(a=>a.id===selected);if(!article||!obs)return;
- $('dashboard').hidden=false;$('publisher').textContent=article.publisher+' / '+article.published;$('title').textContent=article.title;$('original').href=article.url;$('time').textContent=date(data.snapshot.collectedAt);
- const age=(Date.now()-new Date(data.snapshot.collectedAt))/60000;$('fresh').textContent=age>90?'Collection is stale · '+Math.round(age/60)+' hours old':'Twice-hourly collection · UTC snapshots';
+ $('dashboard').hidden=false;$('publisher').textContent=article.publisher+(article.published?' / '+article.published:'');$('title').textContent=article.title;$('original').href=article.url;$('time').textContent=date(data.snapshot.collectedAt);
+ const age=(Date.now()-new Date(data.snapshot.collectedAt))/60000;$('fresh').textContent=data.mode==='live'?'Live social check · scheduled history is pending':age>90?'Collection is stale · '+Math.round(age/60)+' hours old':'Twice-hourly collection · UTC snapshots';
  const c=count(obs);$('cards').replaceChildren();for(const [label,val,note] of [['VERIFIED DISTRIBUTION',c.verified,'Known sources · partial coverage'],['SYNDICATION',c.syndication,'Attributed republications'],['PUBLIC SOCIAL POSTS',c.social,'Exact-link observations only'],['TOTAL READERS','Private','Publisher analytics unavailable']]){const n=el('div',undefined,'card');n.append(el('span',label,'eyebrow'),el('strong',val),el('small',note));$('cards').append(n);}
  $('sources').replaceChildren();for(const s of obs.sources){const f=$('filter').value;if(f!=='all'&&s.status!==f&&s.kind!==f)continue;const n=el('div',undefined,'source'),title=el('div'),body=el('div'),check=el('div',undefined,'check');title.append(el('span',s.status+' / '+s.kind,'badge '+s.status),el('h3',s.name),link('Source page ↗',s.url));body.append(el('p',s.verification));if(s.metrics)body.append(el('p',Object.entries(s.metrics).map(([k,v])=>k+': '+(v??'unavailable')).join(' · ')+' (this platform only)'));check.append(el('div','Verification: '+(s.verifiedAt||'pending')),el('div','Fresh check: '+s.checkStatus),el('div','Direct backlink: '+(s.backlinkVerified?'verified':'not confirmed this check')));if(s.error)check.append(el('p',s.error));n.append(title,body,check);$('sources').append(n);}
+ if(!$('sources').children.length)$('sources').append(el('p','No verified media citations or republications registered for this URL yet. This does not establish zero pickup.','empty'));
  $('social').replaceChildren();for(const p of obs.social){const n=el('div',undefined,'post');n.append(link(p.author+' · '+p.platform+' ↗',p.url),el('small',`Likes/points: ${p.likes??'unavailable'} · Reposts: ${p.reposts??'unavailable'} · Comments: ${p.comments??'unavailable'}`));$('social').append(n);}if(!obs.social.length)$('social').append(el('p','No exact-link social posts verified in this collection. See platform coverage below; this is not proof of zero shares.','empty'));
  const ranked=[...obs.social].sort((a,b)=>score(b)-score(a)).slice(0,5);$('sharers').replaceChildren();if(!ranked.length)$('sharers').textContent='No individual sharer independently verified. Follower counts and personal prominence are unknown.';else for(const p of ranked)$('sharers').append(link(p.author+' ('+score(p)+' observed interactions) ',p.url));
- const table=el('table'),head=el('tr');for(const h of ['Collected','Sources','Posts','WeSearch views','Change*'])head.append(el('th',h));table.append(head);let prev;for(const h of data.history){const a=h.articles.find(a=>a.id===selected);if(!a)continue;const v=count(a),r=el('tr');for(const text of [date(h.collectedAt),v.verified,v.social,a.sources.find(s=>s.name==='WeSearch')?.metrics?.views??'Unavailable',prev?(v.social-prev.social>=0?'+':'')+(v.social-prev.social)+' posts / '+(v.verified-prev.verified>=0?'+':'')+(v.verified-prev.verified)+' sources':'Baseline'])r.append(el('td',text));table.append(r);prev=v;}$('history').replaceChildren(table,el('p','* Change from previous collection. Detailed counter history is in downloadable snapshots.','muted'));
+ const table=el('table'),head=el('tr');
+ const localViews=data.history.some(h=>h.articles.find(a=>a.id===selected)?.sources.some(s=>s.name==='WeSearch'));
+ for(const h of ['Collected','Sources','Posts',...(localViews?['WeSearch views']:[]),'Change*'])head.append(el('th',h));table.append(head);
+ let prev, rows=0;
+ for(const h of data.history){const a=h.articles.find(a=>a.id===selected);if(!a)continue;rows++;const v=count(a),r=el('tr');for(const text of [date(h.collectedAt),v.verified,v.social,...(localViews?[a.sources.find(s=>s.name==='WeSearch')?.metrics?.views??'Unavailable']:[]),prev?(v.social-prev.social>=0?'+':'')+(v.social-prev.social)+' posts / '+(v.verified-prev.verified>=0?'+':'')+(v.verified-prev.verified)+' sources':'Baseline'])r.append(el('td',text));table.append(r);prev=v;}
+ $('history').replaceChildren(...(rows?[table,el('p','* Change from previous collection. Detailed counter history is in downloadable snapshots.','muted')]:[el('p','Scheduled history has not started for this URL yet. The first snapshot will appear after the next successful collection.','empty')]));
  $('coverage').replaceChildren();for(const state of obs.coverage){const n=el('div');n.append(el('strong',state.platform),el('span',' · '+state.status),el('p',state.detail));if(state.api)n.append(link('Collection endpoint ↗',state.api));$('coverage').append(n);}
 }
-async function load(){ $('load').textContent='Checking latest snapshot…';$('refresh').disabled=true;try{let response;try{response=await fetch('https://raw.githubusercontent.com/soupsoup/reach-tracker/main/data/latest.json?ts='+Date.now(),{signal:AbortSignal.timeout(10000)});if(!response.ok)throw Error('GitHub data unavailable');data=await response.json();$('load').textContent='Live repository data · Collection is scheduled at :17 and :47 each hour, subject to GitHub delays.';}catch{response=await fetch('/data/latest.json');if(!response.ok)throw Error('Snapshot unavailable');data=await response.json();$('load').textContent='Showing deployment snapshot · Latest repository data could not be loaded.';}const prior=selected;selected=data.articles.some(a=>a.id===prior)?prior:data.articles[0].id;$('article').replaceChildren(...data.articles.map(a=>{const o=el('option',a.title);o.value=a.id;return o;}));$('article').value=selected;render();}catch(e){$('load').textContent='Data could not be loaded. Try refresh. '+e.message;}finally{$('refresh').disabled=false;}}
-$('article').onchange=()=>{selected=$('article').value;render();};$('filter').onchange=render;$('refresh').onclick=load;load();setInterval(load,300000);
+function resetPage(){activeUrl=undefined;selected=undefined;data=undefined;$('dashboard').hidden=true;$('share').hidden=true;$('refresh').hidden=true;$('load').textContent='Enter an article URL to begin tracking.';}
+function showShare(url){const shared=shareUrl(location.origin,url);$('share-url').value=shared;$('open-share').href=shared;$('share').hidden=false;$('refresh').hidden=false;}
+async function savedData(){
+ try{const r=await fetch('https://raw.githubusercontent.com/soupsoup/reach-tracker/main/data/latest.json?ts='+Date.now(),{signal:AbortSignal.timeout(10000)});if(!r.ok)throw Error();return {data:await r.json(),fallback:false};}
+ catch{const r=await fetch('/data/latest.json');if(!r.ok)throw Error('Saved snapshots unavailable');return {data:await r.json(),fallback:true};}
+}
+async function load(input,{register=false,navigate=false}={}){
+ const generation=++loadGeneration;let url;
+ try{url=normalizeInput(input);}catch(e){$('load').textContent=e.message;return;}
+ $('load').textContent=register?'Saving article and checking public sources…':'Loading this article’s tracking page…';$('refresh').disabled=true;$('track').disabled=true;
+ // Hide the previous article while a different URL loads; never show its metrics under a new link.
+ if(activeUrl&&articleKey(activeUrl)!==articleKey(url)){$('dashboard').hidden=true;$('share').hidden=true;}
+ try{
+   if(register){const r=await fetch('/api/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url})});const result=await r.json();if(!r.ok)throw Error(result.error||'Could not save this article.');}
+   let saved;try{saved=await savedData();}catch{}
+   const known=saved?.data.articles.find(a=>articleKey(a.url)===articleKey(url));
+   let next,status;
+   if(known){next=saved.data;selected=known.id;status=saved.fallback?'Showing deployment snapshot · latest repository data unavailable.':'Saved snapshots · collection scheduled twice hourly.';}
+   else{const r=await fetch('/api/track?'+new URLSearchParams({url}),{signal:AbortSignal.timeout(25000)});const result=await r.json();if(!r.ok)throw Error(result.error||'Public sources could not be checked.');next=result;selected=next.articles[0].id;status='Live public-source check · scheduled snapshots appear after the next successful collection.';}
+   if(generation!==loadGeneration)return;
+   data=next;activeUrl=url;$('article').value=url;$('load').textContent=status;showShare(url);if(navigate)history.pushState({},'',shareUrl(location.origin,url));render();
+ }catch(e){if(generation===loadGeneration){$('dashboard').hidden=true;$('share').hidden=true;$('load').textContent='Could not load this article: '+e.message;}}
+ finally{if(generation===loadGeneration){$('refresh').disabled=false;$('track').disabled=false;}}
+}
+$('track-form').onsubmit=e=>{e.preventDefault();load($('article').value,{register:true,navigate:true});};
+$('filter').onchange=()=>{if(data)render();};$('refresh').onclick=()=>{if(activeUrl)load(activeUrl);};
+$('copy').onclick=async()=>{try{await navigator.clipboard.writeText($('share-url').value);$('copy').textContent='Copied ✓';setTimeout(()=>{$('copy').textContent='Copy link';},2000);}catch{$('share-url').focus();$('share-url').select();$('load').textContent='Select and copy the share link below.';}};
+function openPage(){const url=new URLSearchParams(location.search).get('url');if(url)load(url);else{loadGeneration++;resetPage();$('article').value='';}}
+window.addEventListener('popstate',openPage);openPage();setInterval(()=>{if(activeUrl)load(activeUrl);},300000);
