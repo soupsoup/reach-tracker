@@ -50,7 +50,7 @@ test('URL form saves new article, collects it and creates a direct link',async()
 
 test('LinkedIn form submits a post against the selected article and refreshes public checks',async()=>{
  const article=saved.articles[0],{ids,calls}=await setup('?'+new URLSearchParams({url:article.url}));
- ids['linkedin-url'].value='https://www.linkedin.com/posts/example_activity-123456789-test';
+ document.getElementById('linkedin-url').value='https://www.linkedin.com/posts/example_activity-123456789-test';
  await ids['linkedin-form'].onsubmit({preventDefault(){}});
  assert.ok(calls.some(([url,method])=>url==='/api/linkedin'&&method==='POST'));
  assert.ok(calls.some(([url,method])=>url.startsWith('/api/linkedin?')&&!method));
