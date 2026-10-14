@@ -43,7 +43,7 @@
     }
   ],
   "snapshot": {
-    "collectedAt": "2026-10-14T12:34:27Z",
+    "collectedAt": "2026-10-14T12:35:21Z",
     "articles": [
       {
         "id": "nyt-japan-ai",
@@ -56,7 +56,7 @@
             "verifiedAt": "2026-10-14",
             "status": "verified",
             "evidence": "Public web search retrieved this outlet's page on 2026-10-14.",
-            "lastCheckedAt": "2026-10-14T12:34:27Z",
+            "lastCheckedAt": "2026-10-14T12:35:21Z",
             "backlinkVerified": true,
             "checkStatus": "retrieved"
           },
@@ -68,11 +68,11 @@
             "verifiedAt": "2026-10-14",
             "status": "verified",
             "evidence": "Public web search retrieved canonical URL on 2026-10-14.",
-            "lastCheckedAt": "2026-10-14T12:34:27Z",
+            "lastCheckedAt": "2026-10-14T12:35:21Z",
             "backlinkVerified": true,
             "checkStatus": "retrieved",
             "metrics": {
-              "views": 9,
+              "views": 10,
               "reactions": 0,
               "comments": 0
             }
@@ -83,7 +83,7 @@
             "kind": "citation",
             "status": "candidate",
             "verification": "Search index displays the headline; direct hyperlink must be checked.",
-            "lastCheckedAt": "2026-10-14T12:34:27Z",
+            "lastCheckedAt": "2026-10-14T12:35:21Z",
             "backlinkVerified": false,
             "checkStatus": "retrieved"
           },
@@ -93,7 +93,7 @@
             "kind": "candidate",
             "status": "candidate",
             "verification": "Same headline only; attribution and relationship unverified. Excluded from totals.",
-            "lastCheckedAt": "2026-10-14T12:34:27Z",
+            "lastCheckedAt": "2026-10-14T12:35:21Z",
             "backlinkVerified": false,
             "checkStatus": "retrieved"
           }
@@ -195,6 +195,66 @@
               "status": "candidate",
               "verification": "Same headline only; attribution and relationship unverified. Excluded from totals.",
               "lastCheckedAt": "2026-10-14T12:34:27Z",
+              "backlinkVerified": false,
+              "checkStatus": "retrieved"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "collectedAt": "2026-10-14T12:35:21Z",
+      "articles": [
+        {
+          "id": "nyt-japan-ai",
+          "social": [],
+          "sources": [
+            {
+              "url": "https://www.thestar.com.my/tech/tech-news/2026/10/14/ransomware-attacks-have-swept-japan-ai-may-be-making-them-easier",
+              "name": "The Star \u00b7 Malaysia",
+              "kind": "syndication",
+              "verification": "Search-indexed page credits Tiffany May, Kiuko Notoya and The New York Times; licensing terms not assessed.",
+              "verifiedAt": "2026-10-14",
+              "status": "verified",
+              "evidence": "Public web search retrieved this outlet's page on 2026-10-14.",
+              "lastCheckedAt": "2026-10-14T12:35:21Z",
+              "backlinkVerified": true,
+              "checkStatus": "retrieved"
+            },
+            {
+              "url": "https://wesearch.press/s/ransomware-attacks-have-swept-japan-ai-may-be-making-them-ea-9eb165e4",
+              "name": "WeSearch",
+              "kind": "aggregation",
+              "verification": "Public page identifies the exact canonical NYT URL.",
+              "verifiedAt": "2026-10-14",
+              "status": "verified",
+              "evidence": "Public web search retrieved canonical URL on 2026-10-14.",
+              "lastCheckedAt": "2026-10-14T12:35:21Z",
+              "backlinkVerified": true,
+              "checkStatus": "retrieved",
+              "metrics": {
+                "views": 10,
+                "reactions": 0,
+                "comments": 0
+              }
+            },
+            {
+              "url": "https://libguides.rutgers.edu/c.php?g=336209&p=2264080",
+              "name": "Rutgers University",
+              "kind": "citation",
+              "status": "candidate",
+              "verification": "Search index displays the headline; direct hyperlink must be checked.",
+              "lastCheckedAt": "2026-10-14T12:35:21Z",
+              "backlinkVerified": false,
+              "checkStatus": "retrieved"
+            },
+            {
+              "url": "https://ainewsbreaking.com/ransomware-attacks-have-swept-japan-a-i-may-be-making-them-easier/",
+              "name": "AI News Breaking",
+              "kind": "candidate",
+              "status": "candidate",
+              "verification": "Same headline only; attribution and relationship unverified. Excluded from totals.",
+              "lastCheckedAt": "2026-10-14T12:35:21Z",
               "backlinkVerified": false,
               "checkStatus": "retrieved"
             }
