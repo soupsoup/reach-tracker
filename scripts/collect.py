@@ -47,7 +47,7 @@ def collect(article):
                 posts.append({'id':'hn-'+h['objectID'],'platform':'Hacker News','url':'https://news.ycombinator.com/item?id='+h['objectID'],'author':h.get('author'),'likes':h.get('points'),'comments':h.get('num_comments'),'reposts':None,'followers':None,'observedAt':NOW})
         return posts,{'platform':'Hacker News','status':'ok','detail':'Exact-URL matches in up to 100 search results; not exhaustive.','api':endpoint}
     def bsky():
-        endpoint='https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts?'+urlencode({'q':target,'limit':100,'sort':'latest'})
+        endpoint='https://api.bsky.app/xrpc/app.bsky.feed.searchPosts?'+urlencode({'q':target,'limit':100,'sort':'latest'})
         result=json.loads(fetch(endpoint)); posts=[]
         for p in result['posts']:
             if linked(p,target):
