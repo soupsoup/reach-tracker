@@ -56,3 +56,12 @@ test('LinkedIn form submits a post against the selected article and refreshes pu
  assert.ok(calls.some(([url,method])=>url.startsWith('/api/linkedin?')&&!method));
  assert.equal(ids['linkedin-url'].value,'');assert.equal(ids['linkedin-add'].disabled,false);
 });
+
+test('LinkedIn discovery uses editable headline keywords instead of requiring an indexed full URL',async()=>{
+ const article=saved.articles[0],{ids}=await setup('?'+new URLSearchParams({url:article.url}));
+ const query=new URL(ids['linkedin-google'].href).searchParams.get('q');
+ assert.ok(query.startsWith('site:linkedin.com '));assert.ok(!query.includes('https://'));assert.ok(!query.includes('site:linkedin.com/posts/'));
+ ids['linkedin-search'].value='ransomware Japan AI';ids['linkedin-search'].oninput();
+ assert.equal(new URL(ids['linkedin-native'].href).searchParams.get('keywords'),'ransomware Japan AI');
+ assert.equal(new URL(ids['linkedin-bing'].href).searchParams.get('q'),'site:linkedin.com ransomware Japan AI');
+});

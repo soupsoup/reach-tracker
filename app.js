@@ -1,5 +1,5 @@
 import { normalizeInput, articleKey, shareUrl } from './url-utils.js';
-let data, selected, activeUrl, loadGeneration=0;
+let data, selected, activeUrl, loadGeneration=0, linkedinSearchArticle;
 const $=id=>document.getElementById(id);
 const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
 function link(text,url){const n=el('a',text);try{const u=new URL(url);if(u.protocol==='https:'){n.href=u.href;n.target='_blank';n.rel='noopener noreferrer';}}catch{}return n;}
@@ -56,8 +56,9 @@ window.addEventListener('popstate',openPage);openPage();setInterval(()=>{if(acti
 
 function renderLinkedIn(obs){
  const target=data.articles.find(a=>a.id===selected)?.url;if(!target)return;
- const query='(site:linkedin.com/posts/ OR site:linkedin.com/feed/update/) "'+target+'"';
- $('linkedin-google').href='https://www.google.com/search?'+new URLSearchParams({q:query});$('linkedin-bing').href='https://www.bing.com/search?'+new URLSearchParams({q:query});
+ const article=data.articles.find(a=>a.id===selected);
+ if(linkedinSearchArticle!==articleKey(target)){linkedinSearchArticle=articleKey(target);$('linkedin-search').value=searchPhrase(article);}
+ updateLinkedInSearch();
  $('linkedin-results').replaceChildren();
  const posts=[...obs.social.filter(p=>p.platform==='LinkedIn').map(p=>({...p,status:'verified',detail:p.verification})),...(obs.linkedinCandidates||[])];
  for(const p of posts){const row=el('div',undefined,'post');row.append(el('span',p.status==='verified'?'Verified exact article link':'Candidate · excluded from totals','badge '+(p.status==='verified'?'verified':'candidate')),link('Open LinkedIn post ↗',p.url),el('p',p.detail||'Awaiting public verification.','muted'));if(p.status==='verified')row.append(el('small',`Reactions: ${p.likes??'unavailable'} · Comments: ${p.comments??'unavailable'} · Reposts: ${p.reposts??'unavailable'}`));$('linkedin-results').append(row);}
@@ -76,3 +77,14 @@ $('linkedin-form').onsubmit=async e=>{
  catch(e){$('linkedin-status').textContent=e.message;}finally{$('linkedin-add').disabled=false;}
 };
 $('linkedin-check').onclick=checkLinkedIn;
+
+function searchPhrase(article){
+ if(article.title && !/^https?:\/\//i.test(article.title))return article.title.slice(0,250);
+ try{const path=new URL(article.url).pathname.split('/').filter(Boolean).pop()||'';const words=decodeURIComponent(path).replace(/\.(html?|aspx|php)$/i,'').replace(/[-_]/g,' ');return /[a-z]{3}/i.test(words)?words.slice(0,250):'';}catch{return '';}
+}
+function updateLinkedInSearch(){
+ const phrase=$('linkedin-search').value.trim(),query='site:linkedin.com '+phrase;
+ $('linkedin-native').href='https://www.linkedin.com/search/results/content/?'+new URLSearchParams({keywords:phrase,origin:'GLOBAL_SEARCH_HEADER'});
+ $('linkedin-google').href='https://www.google.com/search?'+new URLSearchParams({q:query});$('linkedin-bing').href='https://www.bing.com/search?'+new URLSearchParams({q:query});
+}
+$('linkedin-search').oninput=updateLinkedInSearch;
