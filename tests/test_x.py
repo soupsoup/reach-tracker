@@ -34,3 +34,13 @@ class XVerification(unittest.TestCase):
             return {'meta':{'result_count':0}}
         with tempfile.TemporaryDirectory() as tmp,patch.dict(os.environ,{'X_BEARER_TOKEN':'test','X_COLLECTION_ENABLED':'true'}):
             collect_x({'url':target},RequestBudget(tmp+'/usage.json',1),request)
+
+    def test_nyt_share_and_newsletter_variants_match(self):
+        target='https://www.nytimes.com/2026/10/13/world/asia/story.html'
+        variants=['?smid=nytcore-ios-share','?unlocked_article_code=fixture&smid=tw-share','?campaign_id=346&emc=newsletter&instance_id=123&nl=world&regi_id=123&segment_id=123&user_id=fixture']
+        for query in variants:
+            posts=observations({'data':[{'id':'123','entities':{'urls':[{'expanded_url':target+query}]}}]},target,'now')
+            self.assertEqual(len(posts),1)
+    def test_functional_parameters_still_distinguish_articles(self):
+        for target,other in [('https://example.org/a?id=1','https://example.org/a?id=2'),('https://example.org/a?user_id=1','https://example.org/a?user_id=2'),('https://www.nytimes.com/story.html?page=1','https://www.nytimes.com/story.html?page=2')]:
+            self.assertEqual(observations({'data':[{'id':'123','entities':{'urls':[{'expanded_url':other}]}}]},target,'now'),[])
