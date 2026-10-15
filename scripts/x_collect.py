@@ -40,7 +40,11 @@ def collect_x(article,budget,request_json=None):
     def state(status,detail):return [],{'platform':'X','status':status,'detail':detail}
     if not token:return state('not connected','Add X_BEARER_TOKEN as a GitHub Actions secret to connect X. Total shares remain unavailable.')
     if os.environ.get('X_COLLECTION_ENABLED','').lower()!='true':return state('paused','X credential configured; set X_COLLECTION_ENABLED=true after setting your X API spending limit.')
-    query='url:"'+canonical(article['url']).replace('"','')+'" -is:retweet'
+    original=article['url'].replace('"','')
+    slug=urlsplit(original).path.rstrip('/').split('/')[-1]
+    terms=['url:"'+original+'"']
+    if len(slug)>=20:terms.append('url:"'+slug+'"')
+    query='('+' OR '.join(terms)+') -is:retweet'
     if len(query)>512:return state('unavailable','Article URL exceeds the recent-search query length limit.')
     if not budget.reserve():return state('paused','Monthly collector request cap reached. This request cap is separate from your X billing spending limit.')
     endpoint='https://api.x.com/2/tweets/search/recent?'+urlencode({'query':query,'max_results':10,'tweet.fields':'created_at,entities,public_metrics,author_id','expansions':'author_id','user.fields':'username'})

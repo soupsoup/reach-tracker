@@ -23,3 +23,14 @@ class XVerification(unittest.TestCase):
             self.assertEqual(status['status'],'paused')
     def test_shortened_link_without_expansion_is_not_verified(self):
         self.assertEqual(observations({'data':[{'id':'123','entities':{'urls':[{'url':'https://t.co/foo'}]}}]},'https://example.org/a','now'),[])
+
+    def test_search_keeps_original_url_and_adds_distinctive_slug(self):
+        from urllib.parse import urlsplit,parse_qs
+        target='https://www.example.org/news/a-distinctive-article-headline.html'
+        def request(endpoint,token):
+            query=parse_qs(urlsplit(endpoint).query)['query'][0]
+            self.assertIn('url:"'+target+'"',query)
+            self.assertIn('url:"a-distinctive-article-headline.html"',query)
+            return {'meta':{'result_count':0}}
+        with tempfile.TemporaryDirectory() as tmp,patch.dict(os.environ,{'X_BEARER_TOKEN':'test','X_COLLECTION_ENABLED':'true'}):
+            collect_x({'url':target},RequestBudget(tmp+'/usage.json',1),request)
