@@ -16,7 +16,6 @@ async function setup(search=''){
  globalThis.setInterval=()=>0;
  globalThis.fetch=async(url,options)=>{
   calls.push([String(url),options?.method]);
-  if(String(url).includes('/api/linkedin'))return {ok:true,json:async()=>({social:[],candidates:[],coverage:{platform:'LinkedIn',status:'limited',detail:'Test public check'}})};
   if(String(url).includes('/api/register'))return {ok:true,json:async()=>({scheduled:true})};
   if(String(url).includes('/api/track')){
    const article={id:'new',url:new URL(String(url),'https://test.org').searchParams.get('url'),publisher:'example.org',title:'New article',sources:[]};
@@ -48,20 +47,12 @@ test('URL form saves new article, collects it and creates a direct link',async()
  assert.equal(ids.track.disabled,false);
 });
 
-test('LinkedIn form submits a post against the selected article and refreshes public checks',async()=>{
+test('article page has no LinkedIn controls or requests and labels coverage unavailable',async()=>{
  const article=saved.articles[0],{ids,calls}=await setup('?'+new URLSearchParams({url:article.url}));
- document.getElementById('linkedin-url').value='https://www.linkedin.com/posts/example_activity-123456789-test';
- await ids['linkedin-form'].onsubmit({preventDefault(){}});
- assert.ok(calls.some(([url,method])=>url==='/api/linkedin'&&method==='POST'));
- assert.ok(calls.some(([url,method])=>url.startsWith('/api/linkedin?')&&!method));
- assert.equal(ids['linkedin-url'].value,'');assert.equal(ids['linkedin-add'].disabled,false);
-});
-
-test('LinkedIn discovery uses editable headline keywords instead of requiring an indexed full URL',async()=>{
- const article=saved.articles[0],{ids}=await setup('?'+new URLSearchParams({url:article.url}));
- const query=new URL(ids['linkedin-google'].href).searchParams.get('q');
- assert.ok(query.startsWith('site:linkedin.com '));assert.ok(!query.includes('https://'));assert.ok(!query.includes('site:linkedin.com/posts/'));
- ids['linkedin-search'].value='ransomware Japan AI';ids['linkedin-search'].oninput();
- assert.equal(new URL(ids['linkedin-native'].href).searchParams.get('keywords'),'ransomware Japan AI');
- assert.equal(new URL(ids['linkedin-bing'].href).searchParams.get('q'),'site:linkedin.com ransomware Japan AI');
+ assert.ok(!calls.some(([url])=>url.includes('/api/linkedin')));
+ assert.equal(ids['linkedin-form'],undefined);
+ const row=ids.coverage.children.find(row=>row.children[0].textContent==='LinkedIn');
+ assert.equal(row.children[1].textContent,' · unavailable');
+ const html=await readFile(new URL('../index.html',import.meta.url),'utf8');
+ assert.ok(!html.includes('id="linkedin-section"'));
 });

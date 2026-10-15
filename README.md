@@ -15,8 +15,8 @@ The home page starts with an empty URL form. Submitting any public HTTP(S) artic
 ## Sharing and persistence
 Use **Track URL**, then **Copy link** to share the exact article tracking page. The registry is capped at 100 unique URLs. Shared pages load GitHub snapshots when available and fall back to live public checks for new URLs. Functional URL query parameters are retained; tracking parameters are removed. Publisher metadata not independently fetched is shown as the URL and hostname. No title, date or reach number is invented. Blob credentials are deployment secrets, never committed or sent to the browser. The GitHub collector uses the public `/api/registry` endpoint and does not need new credentials.
 
-## Observed LinkedIn shares
-Article pages include Google/Bing search shortcuts for indexed posts and a full LinkedIn post URL submission form. Submissions are public, saved in Blob (maximum 20 per article), and checked on page load, on demand, and during scheduled snapshot collection. Search is user-driven; no automatic search API is configured. A search result or user submission alone never enters verified share counts. The verifier requires SocialMediaPosting structured data identifying the requested post and linking the exact article. Only that post's explicit structured interaction counters are accepted; unavailable values stay null. Public request failures, login walls, redirects, shortened links and related posts remain candidates. Requests do not sign in or bypass access restrictions. Total network-wide shares remain unavailable.
+## LinkedIn coverage
+LinkedIn is not integrated: article-wide share discovery and metrics are unavailable. The former manual post submission, search shortcuts, and public post verifier have been removed. Historical snapshots are retained.
 
 ## Connect X
 1. Create a developer project/app in https://developer.x.com/ and obtain its Bearer Token with recent-search access. The API uses credits; set your spending limit in the X Developer Console before enabling.
