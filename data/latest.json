@@ -52,7 +52,7 @@
     }
   ],
   "snapshot": {
-    "collectedAt": "2026-10-15T00:05:58Z",
+    "collectedAt": "2026-10-15T00:06:42Z",
     "articles": [
       {
         "id": "nyt-japan-ai",
@@ -65,7 +65,7 @@
             "verifiedAt": "2026-10-14",
             "status": "verified",
             "evidence": "Public web search retrieved this outlet's page on 2026-10-14.",
-            "lastCheckedAt": "2026-10-15T00:05:58Z",
+            "lastCheckedAt": "2026-10-15T00:06:42Z",
             "backlinkVerified": true,
             "checkStatus": "retrieved"
           },
@@ -77,7 +77,7 @@
             "verifiedAt": "2026-10-14",
             "status": "verified",
             "evidence": "Public web search retrieved canonical URL on 2026-10-14.",
-            "lastCheckedAt": "2026-10-15T00:05:58Z",
+            "lastCheckedAt": "2026-10-15T00:06:42Z",
             "backlinkVerified": true,
             "checkStatus": "retrieved",
             "metrics": {
@@ -92,7 +92,7 @@
             "kind": "citation",
             "status": "candidate",
             "verification": "Search index displays the headline; direct hyperlink must be checked.",
-            "lastCheckedAt": "2026-10-15T00:05:58Z",
+            "lastCheckedAt": "2026-10-15T00:06:42Z",
             "backlinkVerified": false,
             "checkStatus": "retrieved"
           },
@@ -102,7 +102,7 @@
             "kind": "candidate",
             "status": "candidate",
             "verification": "Same headline only; attribution and relationship unverified. Excluded from totals.",
-            "lastCheckedAt": "2026-10-15T00:05:58Z",
+            "lastCheckedAt": "2026-10-15T00:06:42Z",
             "backlinkVerified": false,
             "checkStatus": "retrieved"
           }
@@ -117,7 +117,7 @@
             "comments": 0,
             "reposts": 0,
             "followers": null,
-            "observedAt": "2026-10-15T00:05:58Z"
+            "observedAt": "2026-10-15T00:06:42Z"
           },
           {
             "id": "at://did:plc:qomkdnxrqw3gkbytdxea5z65/app.bsky.feed.post/3mxs7e7qv6r2n",
@@ -128,7 +128,7 @@
             "comments": 0,
             "reposts": 0,
             "followers": null,
-            "observedAt": "2026-10-15T00:05:58Z"
+            "observedAt": "2026-10-15T00:06:42Z"
           },
           {
             "id": "at://did:plc:642zd52d36yxdwshde6edydk/app.bsky.feed.post/3mxs36uvl6x2i",
@@ -139,7 +139,7 @@
             "comments": 0,
             "reposts": 0,
             "followers": null,
-            "observedAt": "2026-10-15T00:05:58Z"
+            "observedAt": "2026-10-15T00:06:42Z"
           },
           {
             "id": "at://did:plc:kyvvwelbhtlncyo7j5de3org/app.bsky.feed.post/3mxryxkijus2l",
@@ -150,7 +150,7 @@
             "comments": 0,
             "reposts": 1,
             "followers": null,
-            "observedAt": "2026-10-15T00:05:58Z"
+            "observedAt": "2026-10-15T00:06:42Z"
           },
           {
             "id": "at://did:plc:ggdwrgmyjz3vgjr5buazimxi/app.bsky.feed.post/3mxrxxiq4a2z2",
@@ -161,7 +161,7 @@
             "comments": 0,
             "reposts": 0,
             "followers": null,
-            "observedAt": "2026-10-15T00:05:58Z"
+            "observedAt": "2026-10-15T00:06:42Z"
           },
           {
             "id": "at://did:plc:2pcjoeylzg3uqk4aricwh5jo/app.bsky.feed.post/2r2vax7vf25zm",
@@ -172,7 +172,35 @@
             "comments": 0,
             "reposts": 0,
             "followers": null,
-            "observedAt": "2026-10-15T00:05:58Z"
+            "observedAt": "2026-10-15T00:06:42Z"
+          },
+          {
+            "id": "x-2110379107712397641",
+            "platform": "X",
+            "url": "https://x.com/i/status/2110379107712397641",
+            "author": "clarinette01",
+            "likes": 0,
+            "comments": 0,
+            "reposts": 0,
+            "quotes": 0,
+            "impressions": 10,
+            "followers": null,
+            "observedAt": "2026-10-15T00:06:45Z",
+            "publishedAt": "2026-10-14T14:36:02.000Z"
+          },
+          {
+            "id": "x-2110261554524660183",
+            "platform": "X",
+            "url": "https://x.com/i/status/2110261554524660183",
+            "author": "textually",
+            "likes": 0,
+            "comments": 0,
+            "reposts": 0,
+            "quotes": 0,
+            "impressions": 34,
+            "followers": null,
+            "observedAt": "2026-10-15T00:06:45Z",
+            "publishedAt": "2026-10-14T06:48:56.000Z"
           }
         ],
         "coverage": [
@@ -213,11 +241,61 @@
             "status": "partial",
             "detail": "Exact expanded article links among up to 10 recent posts from the last 7 days. Native reposts are excluded as duplicate posts; repost and quote counters are shown separately. Older posts and private shares are outside coverage.",
             "api": "https://api.x.com/2/tweets/search/recent",
-            "observedAt": "2026-10-15T00:06:03Z",
-            "query": "url:\"nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html\" -is:retweet",
-            "returnedPosts": 0,
-            "verifiedPosts": 0,
-            "unmatchedLinks": []
+            "observedAt": "2026-10-15T00:06:45Z",
+            "query": "(url:\"https://www.nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html\" OR url:\"japan-cyberattack-artificial-intelligence.html\") -is:retweet",
+            "returnedPosts": 9,
+            "verifiedPosts": 2,
+            "unmatchedLinks": [
+              {
+                "postUrl": "https://x.com/i/status/2110419596104573331",
+                "urls": [
+                  "https://www.nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html?unlocked_article_code=1.IlE.byQ4.Nn_JwMHj0eOi&smid=url-share",
+                  "https://www.nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html?unlocked_article_code=1.IlE.byQ4.Nn_JwMHj0eOi&smid=url-share"
+                ]
+              },
+              {
+                "postUrl": "https://x.com/i/status/2110322511481315745",
+                "urls": [
+                  "https://www.nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html?campaign_id=346&emc=edit_wor_20261014&instance_id=183513&nl=the-world&regi_id=226336068&segment_id=228074&user_id=58beb6b57d6ccd234dd842e3af1693cf",
+                  "https://www.nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html?campaign_id=346&emc=edit_wor_20261014&instance_id=183513&nl=the-world&regi_id=226336068&segment_id=228074&user_id=58beb6b57d6ccd234dd842e3af1693cf"
+                ]
+              },
+              {
+                "postUrl": "https://x.com/i/status/2110217792016593014",
+                "urls": [
+                  "https://www.nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html?smid=nytcore-android-share",
+                  "https://www.nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html?smid=nytcore-android-share"
+                ]
+              },
+              {
+                "postUrl": "https://x.com/i/status/2110211156975444139",
+                "urls": [
+                  "https://www.nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html?smid=nytcore-ios-share",
+                  "https://www.nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html?smid=nytcore-ios-share"
+                ]
+              },
+              {
+                "postUrl": "https://x.com/i/status/2110203667588755730",
+                "urls": [
+                  "https://www.nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html?unlocked_article_code=1.IlE.Z-PT.Sy-bo-0o0TPJ&smid=tw-share",
+                  "https://www.nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html?unlocked_article_code=1.IlE.Z-PT.Sy-bo-0o0TPJ&smid=tw-share"
+                ]
+              },
+              {
+                "postUrl": "https://x.com/i/status/2110165693148885186",
+                "urls": [
+                  "https://www.nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html?unlocked_article_code=1.IlE.jAVk.4SI9dlCOcU8p&smid=tw-share",
+                  "https://www.nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html?unlocked_article_code=1.IlE.jAVk.4SI9dlCOcU8p&smid=tw-share"
+                ]
+              },
+              {
+                "postUrl": "https://x.com/i/status/2110161343143936041",
+                "urls": [
+                  "https://www.nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html?unlocked_article_code=1.IlE.VzEy.GOnY055RILVx&smid=tw-share",
+                  "https://www.nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html?unlocked_article_code=1.IlE.VzEy.GOnY055RILVx&smid=tw-share"
+                ]
+              }
+            ]
           }
         ]
       },
@@ -268,11 +346,19 @@
             "status": "partial",
             "detail": "Exact expanded article links among up to 10 recent posts from the last 7 days. Native reposts are excluded as duplicate posts; repost and quote counters are shown separately. Older posts and private shares are outside coverage.",
             "api": "https://api.x.com/2/tweets/search/recent",
-            "observedAt": "2026-10-15T00:06:03Z",
-            "query": "url:\"trendaisecurity.com/en-us/resources-insights/deep-research/how-digital-assistants-change-social-engineering\" -is:retweet",
-            "returnedPosts": 0,
+            "observedAt": "2026-10-15T00:06:45Z",
+            "query": "(url:\"https://www.trendaisecurity.com/en-us/resources-insights/deep-research/how-digital-assistants-change-social-engineering\" OR url:\"how-digital-assistants-change-social-engineering\") -is:retweet",
+            "returnedPosts": 1,
             "verifiedPosts": 0,
-            "unmatchedLinks": []
+            "unmatchedLinks": [
+              {
+                "postUrl": "https://x.com/i/status/2110321203873517745",
+                "urls": [
+                  "https://www.trendaisecurity.com/en/resources-insights/deep-research/how-digital-assistants-change-social-engineering",
+                  "https://www.trendaisecurity.com/en/resources-insights/deep-research/how-digital-assistants-change-social-engineering"
+                ]
+              }
+            ]
           }
         ]
       }
@@ -2230,6 +2316,166 @@
               "status": "candidate",
               "verification": "Same headline only; attribution and relationship unverified. Excluded from totals.",
               "lastCheckedAt": "2026-10-15T00:05:58Z",
+              "backlinkVerified": false,
+              "checkStatus": "retrieved"
+            }
+          ]
+        },
+        {
+          "id": "url-d84b1304f4dd8497d288d988",
+          "social": [],
+          "sources": []
+        }
+      ]
+    },
+    {
+      "collectedAt": "2026-10-15T00:06:42Z",
+      "articles": [
+        {
+          "id": "nyt-japan-ai",
+          "social": [
+            {
+              "id": "at://did:plc:7hc3ntwii55gbipddmecsn47/app.bsky.feed.post/3mxtre644ks2l",
+              "platform": "Bluesky",
+              "url": "https://bsky.app/profile/taraba.bsky.social/post/3mxtre644ks2l",
+              "author": "taraba.bsky.social",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 0,
+              "followers": null,
+              "observedAt": "2026-10-15T00:06:42Z"
+            },
+            {
+              "id": "at://did:plc:qomkdnxrqw3gkbytdxea5z65/app.bsky.feed.post/3mxs7e7qv6r2n",
+              "platform": "Bluesky",
+              "url": "https://bsky.app/profile/druce.ai/post/3mxs7e7qv6r2n",
+              "author": "druce.ai",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 0,
+              "followers": null,
+              "observedAt": "2026-10-15T00:06:42Z"
+            },
+            {
+              "id": "at://did:plc:642zd52d36yxdwshde6edydk/app.bsky.feed.post/3mxs36uvl6x2i",
+              "platform": "Bluesky",
+              "url": "https://bsky.app/profile/headline-feed.bsky.social/post/3mxs36uvl6x2i",
+              "author": "headline-feed.bsky.social",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 0,
+              "followers": null,
+              "observedAt": "2026-10-15T00:06:42Z"
+            },
+            {
+              "id": "at://did:plc:kyvvwelbhtlncyo7j5de3org/app.bsky.feed.post/3mxryxkijus2l",
+              "platform": "Bluesky",
+              "url": "https://bsky.app/profile/newnarrative.bsky.social/post/3mxryxkijus2l",
+              "author": "newnarrative.bsky.social",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 1,
+              "followers": null,
+              "observedAt": "2026-10-15T00:06:42Z"
+            },
+            {
+              "id": "at://did:plc:ggdwrgmyjz3vgjr5buazimxi/app.bsky.feed.post/3mxrxxiq4a2z2",
+              "platform": "Bluesky",
+              "url": "https://bsky.app/profile/themidgeekcrisis.app/post/3mxrxxiq4a2z2",
+              "author": "themidgeekcrisis.app",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 0,
+              "followers": null,
+              "observedAt": "2026-10-15T00:06:42Z"
+            },
+            {
+              "id": "at://did:plc:2pcjoeylzg3uqk4aricwh5jo/app.bsky.feed.post/2r2vax7vf25zm",
+              "platform": "Bluesky",
+              "url": "https://bsky.app/profile/nytimes-news.bsky.social/post/2r2vax7vf25zm",
+              "author": "nytimes-news.bsky.social",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 0,
+              "followers": null,
+              "observedAt": "2026-10-15T00:06:42Z"
+            },
+            {
+              "id": "x-2110379107712397641",
+              "platform": "X",
+              "url": "https://x.com/i/status/2110379107712397641",
+              "author": "clarinette01",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 0,
+              "quotes": 0,
+              "impressions": 10,
+              "followers": null,
+              "observedAt": "2026-10-15T00:06:45Z",
+              "publishedAt": "2026-10-14T14:36:02.000Z"
+            },
+            {
+              "id": "x-2110261554524660183",
+              "platform": "X",
+              "url": "https://x.com/i/status/2110261554524660183",
+              "author": "textually",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 0,
+              "quotes": 0,
+              "impressions": 34,
+              "followers": null,
+              "observedAt": "2026-10-15T00:06:45Z",
+              "publishedAt": "2026-10-14T06:48:56.000Z"
+            }
+          ],
+          "sources": [
+            {
+              "url": "https://www.thestar.com.my/tech/tech-news/2026/10/14/ransomware-attacks-have-swept-japan-ai-may-be-making-them-easier",
+              "name": "The Star \u00b7 Malaysia",
+              "kind": "syndication",
+              "verification": "Search-indexed page credits Tiffany May, Kiuko Notoya and The New York Times; licensing terms not assessed.",
+              "verifiedAt": "2026-10-14",
+              "status": "verified",
+              "evidence": "Public web search retrieved this outlet's page on 2026-10-14.",
+              "lastCheckedAt": "2026-10-15T00:06:42Z",
+              "backlinkVerified": true,
+              "checkStatus": "retrieved"
+            },
+            {
+              "url": "https://wesearch.press/s/ransomware-attacks-have-swept-japan-ai-may-be-making-them-ea-9eb165e4",
+              "name": "WeSearch",
+              "kind": "aggregation",
+              "verification": "Public page identifies the exact canonical NYT URL.",
+              "verifiedAt": "2026-10-14",
+              "status": "verified",
+              "evidence": "Public web search retrieved canonical URL on 2026-10-14.",
+              "lastCheckedAt": "2026-10-15T00:06:42Z",
+              "backlinkVerified": true,
+              "checkStatus": "retrieved",
+              "metrics": {
+                "views": 25,
+                "reactions": 0,
+                "comments": 0
+              }
+            },
+            {
+              "url": "https://libguides.rutgers.edu/c.php?g=336209&p=2264080",
+              "name": "Rutgers University",
+              "kind": "citation",
+              "status": "candidate",
+              "verification": "Search index displays the headline; direct hyperlink must be checked.",
+              "lastCheckedAt": "2026-10-15T00:06:42Z",
+              "backlinkVerified": false,
+              "checkStatus": "retrieved"
+            },
+            {
+              "url": "https://ainewsbreaking.com/ransomware-attacks-have-swept-japan-a-i-may-be-making-them-easier/",
+              "name": "AI News Breaking",
+              "kind": "candidate",
+              "status": "candidate",
+              "verification": "Same headline only; attribution and relationship unverified. Excluded from totals.",
+              "lastCheckedAt": "2026-10-15T00:06:42Z",
               "backlinkVerified": false,
               "checkStatus": "retrieved"
             }
