@@ -52,7 +52,7 @@
     }
   ],
   "snapshot": {
-    "collectedAt": "2026-10-18T14:53:24Z",
+    "collectedAt": "2026-10-18T18:09:57Z",
     "articles": [
       {
         "id": "nyt-japan-ai",
@@ -65,7 +65,7 @@
             "verifiedAt": "2026-10-14",
             "status": "verified",
             "evidence": "Public web search retrieved this outlet's page on 2026-10-14.",
-            "lastCheckedAt": "2026-10-18T14:53:24Z",
+            "lastCheckedAt": "2026-10-18T18:09:57Z",
             "backlinkVerified": true,
             "checkStatus": "retrieved"
           },
@@ -77,11 +77,11 @@
             "verifiedAt": "2026-10-14",
             "status": "verified",
             "evidence": "Public web search retrieved canonical URL on 2026-10-14.",
-            "lastCheckedAt": "2026-10-18T14:53:24Z",
+            "lastCheckedAt": "2026-10-18T18:09:57Z",
             "backlinkVerified": true,
             "checkStatus": "retrieved",
             "metrics": {
-              "views": 50,
+              "views": 51,
               "reactions": 0,
               "comments": 0
             }
@@ -92,7 +92,7 @@
             "kind": "citation",
             "status": "candidate",
             "verification": "Search index displays the headline; direct hyperlink must be checked.",
-            "lastCheckedAt": "2026-10-18T14:53:24Z",
+            "lastCheckedAt": "2026-10-18T18:09:57Z",
             "backlinkVerified": false,
             "checkStatus": "retrieved"
           },
@@ -102,7 +102,7 @@
             "kind": "candidate",
             "status": "candidate",
             "verification": "Same headline only; attribution and relationship unverified. Excluded from totals.",
-            "lastCheckedAt": "2026-10-18T14:53:24Z",
+            "lastCheckedAt": "2026-10-18T18:09:57Z",
             "backlinkVerified": false,
             "checkStatus": "retrieved"
           }
@@ -117,7 +117,7 @@
             "comments": 2,
             "reposts": 1,
             "followers": null,
-            "observedAt": "2026-10-18T14:53:24Z"
+            "observedAt": "2026-10-18T18:09:57Z"
           },
           {
             "id": "at://did:plc:7hc3ntwii55gbipddmecsn47/app.bsky.feed.post/3mxtre644ks2l",
@@ -128,7 +128,7 @@
             "comments": 0,
             "reposts": 0,
             "followers": null,
-            "observedAt": "2026-10-18T14:53:24Z"
+            "observedAt": "2026-10-18T18:09:57Z"
           },
           {
             "id": "at://did:plc:qomkdnxrqw3gkbytdxea5z65/app.bsky.feed.post/3mxs7e7qv6r2n",
@@ -139,7 +139,7 @@
             "comments": 0,
             "reposts": 0,
             "followers": null,
-            "observedAt": "2026-10-18T14:53:24Z"
+            "observedAt": "2026-10-18T18:09:57Z"
           },
           {
             "id": "at://did:plc:642zd52d36yxdwshde6edydk/app.bsky.feed.post/3mxs36uvl6x2i",
@@ -150,7 +150,7 @@
             "comments": 0,
             "reposts": 0,
             "followers": null,
-            "observedAt": "2026-10-18T14:53:24Z"
+            "observedAt": "2026-10-18T18:09:57Z"
           },
           {
             "id": "at://did:plc:kyvvwelbhtlncyo7j5de3org/app.bsky.feed.post/3mxryxkijus2l",
@@ -161,7 +161,7 @@
             "comments": 0,
             "reposts": 1,
             "followers": null,
-            "observedAt": "2026-10-18T14:53:24Z"
+            "observedAt": "2026-10-18T18:09:57Z"
           },
           {
             "id": "at://did:plc:ggdwrgmyjz3vgjr5buazimxi/app.bsky.feed.post/3mxrxxiq4a2z2",
@@ -172,7 +172,7 @@
             "comments": 0,
             "reposts": 0,
             "followers": null,
-            "observedAt": "2026-10-18T14:53:24Z"
+            "observedAt": "2026-10-18T18:09:57Z"
           },
           {
             "id": "at://did:plc:2pcjoeylzg3uqk4aricwh5jo/app.bsky.feed.post/2r2vax7vf25zm",
@@ -183,7 +183,7 @@
             "comments": 0,
             "reposts": 0,
             "followers": null,
-            "observedAt": "2026-10-18T14:53:24Z"
+            "observedAt": "2026-10-18T18:09:57Z"
           },
           {
             "id": "x-2110575627514634730",
@@ -196,7 +196,7 @@
             "quotes": 0,
             "impressions": 134,
             "followers": null,
-            "observedAt": "2026-10-18T14:53:29Z",
+            "observedAt": "2026-10-18T18:10:03Z",
             "publishedAt": "2026-10-15T03:36:56.000Z"
           },
           {
@@ -210,7 +210,7 @@
             "quotes": 0,
             "impressions": 873,
             "followers": null,
-            "observedAt": "2026-10-18T14:53:29Z",
+            "observedAt": "2026-10-18T18:10:03Z",
             "publishedAt": "2026-10-15T03:13:15.000Z"
           },
           {
@@ -224,7 +224,7 @@
             "quotes": 0,
             "impressions": 32,
             "followers": null,
-            "observedAt": "2026-10-18T14:53:29Z",
+            "observedAt": "2026-10-18T18:10:03Z",
             "publishedAt": "2026-10-14T17:16:56.000Z"
           },
           {
@@ -238,7 +238,7 @@
             "quotes": 0,
             "impressions": 16,
             "followers": null,
-            "observedAt": "2026-10-18T14:53:29Z",
+            "observedAt": "2026-10-18T18:10:03Z",
             "publishedAt": "2026-10-14T14:36:02.000Z"
           },
           {
@@ -250,9 +250,9 @@
             "comments": 0,
             "reposts": 0,
             "quotes": 0,
-            "impressions": 182,
+            "impressions": 183,
             "followers": null,
-            "observedAt": "2026-10-18T14:53:29Z",
+            "observedAt": "2026-10-18T18:10:03Z",
             "publishedAt": "2026-10-14T10:51:09.000Z"
           },
           {
@@ -266,7 +266,7 @@
             "quotes": 0,
             "impressions": 42,
             "followers": null,
-            "observedAt": "2026-10-18T14:53:29Z",
+            "observedAt": "2026-10-18T18:10:03Z",
             "publishedAt": "2026-10-14T06:48:56.000Z"
           },
           {
@@ -278,9 +278,9 @@
             "comments": 0,
             "reposts": 0,
             "quotes": 0,
-            "impressions": 438,
+            "impressions": 439,
             "followers": null,
-            "observedAt": "2026-10-18T14:53:29Z",
+            "observedAt": "2026-10-18T18:10:03Z",
             "publishedAt": "2026-10-14T03:55:02.000Z"
           },
           {
@@ -294,7 +294,7 @@
             "quotes": 0,
             "impressions": 45,
             "followers": null,
-            "observedAt": "2026-10-18T14:53:29Z",
+            "observedAt": "2026-10-18T18:10:03Z",
             "publishedAt": "2026-10-14T03:28:40.000Z"
           },
           {
@@ -308,7 +308,7 @@
             "quotes": 0,
             "impressions": 89,
             "followers": null,
-            "observedAt": "2026-10-18T14:53:29Z",
+            "observedAt": "2026-10-18T18:10:03Z",
             "publishedAt": "2026-10-14T02:58:54.000Z"
           },
           {
@@ -322,7 +322,7 @@
             "quotes": 0,
             "impressions": 97,
             "followers": null,
-            "observedAt": "2026-10-18T14:53:29Z",
+            "observedAt": "2026-10-18T18:10:03Z",
             "publishedAt": "2026-10-14T00:28:00.000Z"
           }
         ],
@@ -364,7 +364,7 @@
             "status": "partial",
             "detail": "Exact expanded article links among up to 10 recent posts from the last 7 days. Native reposts are excluded as duplicate posts; repost and quote counters are shown separately. Older posts and private shares are outside coverage. More results exist beyond this collection limit.",
             "api": "https://api.x.com/2/tweets/search/recent",
-            "observedAt": "2026-10-18T14:53:29Z",
+            "observedAt": "2026-10-18T18:10:03Z",
             "query": "(url:\"https://www.nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html\" OR url:\"japan-cyberattack-artificial-intelligence.html\") -is:retweet",
             "returnedPosts": 10,
             "verifiedPosts": 10,
@@ -419,7 +419,7 @@
             "status": "partial",
             "detail": "Exact expanded article links among up to 10 recent posts from the last 7 days. Native reposts are excluded as duplicate posts; repost and quote counters are shown separately. Older posts and private shares are outside coverage.",
             "api": "https://api.x.com/2/tweets/search/recent",
-            "observedAt": "2026-10-18T14:53:29Z",
+            "observedAt": "2026-10-18T18:10:03Z",
             "query": "(url:\"https://www.trendaisecurity.com/en-us/resources-insights/deep-research/how-digital-assistants-change-social-engineering\" OR url:\"how-digital-assistants-change-social-engineering\") -is:retweet",
             "returnedPosts": 1,
             "verifiedPosts": 0,
@@ -9284,6 +9284,289 @@
               "status": "candidate",
               "verification": "Same headline only; attribution and relationship unverified. Excluded from totals.",
               "lastCheckedAt": "2026-10-18T14:53:24Z",
+              "backlinkVerified": false,
+              "checkStatus": "retrieved"
+            }
+          ]
+        },
+        {
+          "id": "url-d84b1304f4dd8497d288d988",
+          "social": [],
+          "sources": []
+        }
+      ]
+    },
+    {
+      "collectedAt": "2026-10-18T18:09:57Z",
+      "articles": [
+        {
+          "id": "nyt-japan-ai",
+          "social": [
+            {
+              "id": "at://did:plc:phk7appelvods6wuq3le2ofm/app.bsky.feed.post/3mxvkwlfj4k2d",
+              "platform": "Bluesky",
+              "url": "https://bsky.app/profile/eerolasami.bsky.social/post/3mxvkwlfj4k2d",
+              "author": "eerolasami.bsky.social",
+              "likes": 27,
+              "comments": 2,
+              "reposts": 1,
+              "followers": null,
+              "observedAt": "2026-10-18T18:09:57Z"
+            },
+            {
+              "id": "at://did:plc:7hc3ntwii55gbipddmecsn47/app.bsky.feed.post/3mxtre644ks2l",
+              "platform": "Bluesky",
+              "url": "https://bsky.app/profile/taraba.bsky.social/post/3mxtre644ks2l",
+              "author": "taraba.bsky.social",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 0,
+              "followers": null,
+              "observedAt": "2026-10-18T18:09:57Z"
+            },
+            {
+              "id": "at://did:plc:qomkdnxrqw3gkbytdxea5z65/app.bsky.feed.post/3mxs7e7qv6r2n",
+              "platform": "Bluesky",
+              "url": "https://bsky.app/profile/druce.ai/post/3mxs7e7qv6r2n",
+              "author": "druce.ai",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 0,
+              "followers": null,
+              "observedAt": "2026-10-18T18:09:57Z"
+            },
+            {
+              "id": "at://did:plc:642zd52d36yxdwshde6edydk/app.bsky.feed.post/3mxs36uvl6x2i",
+              "platform": "Bluesky",
+              "url": "https://bsky.app/profile/headline-feed.bsky.social/post/3mxs36uvl6x2i",
+              "author": "headline-feed.bsky.social",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 0,
+              "followers": null,
+              "observedAt": "2026-10-18T18:09:57Z"
+            },
+            {
+              "id": "at://did:plc:kyvvwelbhtlncyo7j5de3org/app.bsky.feed.post/3mxryxkijus2l",
+              "platform": "Bluesky",
+              "url": "https://bsky.app/profile/newnarrative.bsky.social/post/3mxryxkijus2l",
+              "author": "newnarrative.bsky.social",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 1,
+              "followers": null,
+              "observedAt": "2026-10-18T18:09:57Z"
+            },
+            {
+              "id": "at://did:plc:ggdwrgmyjz3vgjr5buazimxi/app.bsky.feed.post/3mxrxxiq4a2z2",
+              "platform": "Bluesky",
+              "url": "https://bsky.app/profile/themidgeekcrisis.app/post/3mxrxxiq4a2z2",
+              "author": "themidgeekcrisis.app",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 0,
+              "followers": null,
+              "observedAt": "2026-10-18T18:09:57Z"
+            },
+            {
+              "id": "at://did:plc:2pcjoeylzg3uqk4aricwh5jo/app.bsky.feed.post/2r2vax7vf25zm",
+              "platform": "Bluesky",
+              "url": "https://bsky.app/profile/nytimes-news.bsky.social/post/2r2vax7vf25zm",
+              "author": "nytimes-news.bsky.social",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 0,
+              "followers": null,
+              "observedAt": "2026-10-18T18:09:57Z"
+            },
+            {
+              "id": "x-2110575627514634730",
+              "platform": "X",
+              "url": "https://x.com/i/status/2110575627514634730",
+              "author": "TacticalCISO",
+              "likes": 1,
+              "comments": 1,
+              "reposts": 1,
+              "quotes": 0,
+              "impressions": 134,
+              "followers": null,
+              "observedAt": "2026-10-18T18:10:03Z",
+              "publishedAt": "2026-10-15T03:36:56.000Z"
+            },
+            {
+              "id": "x-2110569664388460814",
+              "platform": "X",
+              "url": "https://x.com/i/status/2110569664388460814",
+              "author": "Cyber_O51NT",
+              "likes": 5,
+              "comments": 0,
+              "reposts": 2,
+              "quotes": 0,
+              "impressions": 873,
+              "followers": null,
+              "observedAt": "2026-10-18T18:10:03Z",
+              "publishedAt": "2026-10-15T03:13:15.000Z"
+            },
+            {
+              "id": "x-2110419596104573331",
+              "platform": "X",
+              "url": "https://x.com/i/status/2110419596104573331",
+              "author": "jbhall56",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 0,
+              "quotes": 0,
+              "impressions": 32,
+              "followers": null,
+              "observedAt": "2026-10-18T18:10:03Z",
+              "publishedAt": "2026-10-14T17:16:56.000Z"
+            },
+            {
+              "id": "x-2110379107712397641",
+              "platform": "X",
+              "url": "https://x.com/i/status/2110379107712397641",
+              "author": "clarinette01",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 0,
+              "quotes": 0,
+              "impressions": 16,
+              "followers": null,
+              "observedAt": "2026-10-18T18:10:03Z",
+              "publishedAt": "2026-10-14T14:36:02.000Z"
+            },
+            {
+              "id": "x-2110322511481315745",
+              "platform": "X",
+              "url": "https://x.com/i/status/2110322511481315745",
+              "author": "borealissaves",
+              "likes": 1,
+              "comments": 0,
+              "reposts": 0,
+              "quotes": 0,
+              "impressions": 183,
+              "followers": null,
+              "observedAt": "2026-10-18T18:10:03Z",
+              "publishedAt": "2026-10-14T10:51:09.000Z"
+            },
+            {
+              "id": "x-2110261554524660183",
+              "platform": "X",
+              "url": "https://x.com/i/status/2110261554524660183",
+              "author": "textually",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 0,
+              "quotes": 0,
+              "impressions": 42,
+              "followers": null,
+              "observedAt": "2026-10-18T18:10:03Z",
+              "publishedAt": "2026-10-14T06:48:56.000Z"
+            },
+            {
+              "id": "x-2110217792016593014",
+              "platform": "X",
+              "url": "https://x.com/i/status/2110217792016593014",
+              "author": "carina38925315",
+              "likes": 3,
+              "comments": 0,
+              "reposts": 0,
+              "quotes": 0,
+              "impressions": 439,
+              "followers": null,
+              "observedAt": "2026-10-18T18:10:03Z",
+              "publishedAt": "2026-10-14T03:55:02.000Z"
+            },
+            {
+              "id": "x-2110211156975444139",
+              "platform": "X",
+              "url": "https://x.com/i/status/2110211156975444139",
+              "author": "christinayiotis",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 0,
+              "quotes": 0,
+              "impressions": 45,
+              "followers": null,
+              "observedAt": "2026-10-18T18:10:03Z",
+              "publishedAt": "2026-10-14T03:28:40.000Z"
+            },
+            {
+              "id": "x-2110203667588755730",
+              "platform": "X",
+              "url": "https://x.com/i/status/2110203667588755730",
+              "author": "mysweetmoon1983",
+              "likes": 1,
+              "comments": 0,
+              "reposts": 0,
+              "quotes": 0,
+              "impressions": 89,
+              "followers": null,
+              "observedAt": "2026-10-18T18:10:03Z",
+              "publishedAt": "2026-10-14T02:58:54.000Z"
+            },
+            {
+              "id": "x-2110165693148885186",
+              "platform": "X",
+              "url": "https://x.com/i/status/2110165693148885186",
+              "author": "JimLaurie_Asia",
+              "likes": 0,
+              "comments": 0,
+              "reposts": 0,
+              "quotes": 0,
+              "impressions": 97,
+              "followers": null,
+              "observedAt": "2026-10-18T18:10:03Z",
+              "publishedAt": "2026-10-14T00:28:00.000Z"
+            }
+          ],
+          "sources": [
+            {
+              "url": "https://www.thestar.com.my/tech/tech-news/2026/10/14/ransomware-attacks-have-swept-japan-ai-may-be-making-them-easier",
+              "name": "The Star \u00b7 Malaysia",
+              "kind": "syndication",
+              "verification": "Search-indexed page credits Tiffany May, Kiuko Notoya and The New York Times; licensing terms not assessed.",
+              "verifiedAt": "2026-10-14",
+              "status": "verified",
+              "evidence": "Public web search retrieved this outlet's page on 2026-10-14.",
+              "lastCheckedAt": "2026-10-18T18:09:57Z",
+              "backlinkVerified": true,
+              "checkStatus": "retrieved"
+            },
+            {
+              "url": "https://wesearch.press/s/ransomware-attacks-have-swept-japan-ai-may-be-making-them-ea-9eb165e4",
+              "name": "WeSearch",
+              "kind": "aggregation",
+              "verification": "Public page identifies the exact canonical NYT URL.",
+              "verifiedAt": "2026-10-14",
+              "status": "verified",
+              "evidence": "Public web search retrieved canonical URL on 2026-10-14.",
+              "lastCheckedAt": "2026-10-18T18:09:57Z",
+              "backlinkVerified": true,
+              "checkStatus": "retrieved",
+              "metrics": {
+                "views": 51,
+                "reactions": 0,
+                "comments": 0
+              }
+            },
+            {
+              "url": "https://libguides.rutgers.edu/c.php?g=336209&p=2264080",
+              "name": "Rutgers University",
+              "kind": "citation",
+              "status": "candidate",
+              "verification": "Search index displays the headline; direct hyperlink must be checked.",
+              "lastCheckedAt": "2026-10-18T18:09:57Z",
+              "backlinkVerified": false,
+              "checkStatus": "retrieved"
+            },
+            {
+              "url": "https://ainewsbreaking.com/ransomware-attacks-have-swept-japan-a-i-may-be-making-them-easier/",
+              "name": "AI News Breaking",
+              "kind": "candidate",
+              "status": "candidate",
+              "verification": "Same headline only; attribution and relationship unverified. Excluded from totals.",
+              "lastCheckedAt": "2026-10-18T18:09:57Z",
               "backlinkVerified": false,
               "checkStatus": "retrieved"
             }
