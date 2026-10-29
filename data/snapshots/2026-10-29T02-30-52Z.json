@@ -1,0 +1,239 @@
+{
+  "collectedAt": "2026-10-29T02:30:52Z",
+  "articles": [
+    {
+      "id": "nyt-japan-ai",
+      "sources": [
+        {
+          "url": "https://www.thestar.com.my/tech/tech-news/2026/10/14/ransomware-attacks-have-swept-japan-ai-may-be-making-them-easier",
+          "name": "The Star \u00b7 Malaysia",
+          "kind": "syndication",
+          "verification": "Search-indexed page credits Tiffany May, Kiuko Notoya and The New York Times; licensing terms not assessed.",
+          "verifiedAt": "2026-10-14",
+          "status": "verified",
+          "evidence": "Public web search retrieved this outlet's page on 2026-10-14.",
+          "lastCheckedAt": "2026-10-29T02:30:52Z",
+          "backlinkVerified": true,
+          "checkStatus": "retrieved"
+        },
+        {
+          "url": "https://wesearch.press/s/ransomware-attacks-have-swept-japan-ai-may-be-making-them-ea-9eb165e4",
+          "name": "WeSearch",
+          "kind": "aggregation",
+          "verification": "Public page identifies the exact canonical NYT URL.",
+          "verifiedAt": "2026-10-14",
+          "status": "verified",
+          "evidence": "Public web search retrieved canonical URL on 2026-10-14.",
+          "lastCheckedAt": "2026-10-29T02:30:52Z",
+          "backlinkVerified": true,
+          "checkStatus": "retrieved",
+          "metrics": {
+            "views": 99,
+            "reactions": 0,
+            "comments": 0
+          }
+        },
+        {
+          "url": "https://libguides.rutgers.edu/c.php?g=336209&p=2264080",
+          "name": "Rutgers University",
+          "kind": "citation",
+          "status": "candidate",
+          "verification": "Search index displays the headline; direct hyperlink must be checked.",
+          "lastCheckedAt": "2026-10-29T02:30:52Z",
+          "backlinkVerified": false,
+          "checkStatus": "retrieved"
+        },
+        {
+          "url": "https://ainewsbreaking.com/ransomware-attacks-have-swept-japan-a-i-may-be-making-them-easier/",
+          "name": "AI News Breaking",
+          "kind": "candidate",
+          "status": "candidate",
+          "verification": "Same headline only; attribution and relationship unverified. Excluded from totals.",
+          "lastCheckedAt": "2026-10-29T02:30:52Z",
+          "backlinkVerified": false,
+          "checkStatus": "retrieved"
+        }
+      ],
+      "social": [
+        {
+          "id": "at://did:plc:phk7appelvods6wuq3le2ofm/app.bsky.feed.post/3mxvkwlfj4k2d",
+          "platform": "Bluesky",
+          "url": "https://bsky.app/profile/eerolasami.bsky.social/post/3mxvkwlfj4k2d",
+          "author": "eerolasami.bsky.social",
+          "likes": 27,
+          "comments": 2,
+          "reposts": 1,
+          "followers": null,
+          "observedAt": "2026-10-29T02:30:52Z"
+        },
+        {
+          "id": "at://did:plc:7hc3ntwii55gbipddmecsn47/app.bsky.feed.post/3mxtre644ks2l",
+          "platform": "Bluesky",
+          "url": "https://bsky.app/profile/taraba.bsky.social/post/3mxtre644ks2l",
+          "author": "taraba.bsky.social",
+          "likes": 0,
+          "comments": 0,
+          "reposts": 0,
+          "followers": null,
+          "observedAt": "2026-10-29T02:30:52Z"
+        },
+        {
+          "id": "at://did:plc:qomkdnxrqw3gkbytdxea5z65/app.bsky.feed.post/3mxs7e7qv6r2n",
+          "platform": "Bluesky",
+          "url": "https://bsky.app/profile/druce.ai/post/3mxs7e7qv6r2n",
+          "author": "druce.ai",
+          "likes": 0,
+          "comments": 0,
+          "reposts": 0,
+          "followers": null,
+          "observedAt": "2026-10-29T02:30:52Z"
+        },
+        {
+          "id": "at://did:plc:642zd52d36yxdwshde6edydk/app.bsky.feed.post/3mxs36uvl6x2i",
+          "platform": "Bluesky",
+          "url": "https://bsky.app/profile/headline-feed.bsky.social/post/3mxs36uvl6x2i",
+          "author": "headline-feed.bsky.social",
+          "likes": 0,
+          "comments": 0,
+          "reposts": 0,
+          "followers": null,
+          "observedAt": "2026-10-29T02:30:52Z"
+        },
+        {
+          "id": "at://did:plc:kyvvwelbhtlncyo7j5de3org/app.bsky.feed.post/3mxryxkijus2l",
+          "platform": "Bluesky",
+          "url": "https://bsky.app/profile/newnarrative.bsky.social/post/3mxryxkijus2l",
+          "author": "newnarrative.bsky.social",
+          "likes": 0,
+          "comments": 0,
+          "reposts": 1,
+          "followers": null,
+          "observedAt": "2026-10-29T02:30:52Z"
+        },
+        {
+          "id": "at://did:plc:ggdwrgmyjz3vgjr5buazimxi/app.bsky.feed.post/3mxrxxiq4a2z2",
+          "platform": "Bluesky",
+          "url": "https://bsky.app/profile/themidgeekcrisis.app/post/3mxrxxiq4a2z2",
+          "author": "themidgeekcrisis.app",
+          "likes": 0,
+          "comments": 0,
+          "reposts": 0,
+          "followers": null,
+          "observedAt": "2026-10-29T02:30:52Z"
+        },
+        {
+          "id": "at://did:plc:2pcjoeylzg3uqk4aricwh5jo/app.bsky.feed.post/2r2vax7vf25zm",
+          "platform": "Bluesky",
+          "url": "https://bsky.app/profile/nytimes-news.bsky.social/post/2r2vax7vf25zm",
+          "author": "nytimes-news.bsky.social",
+          "likes": 0,
+          "comments": 0,
+          "reposts": 0,
+          "followers": null,
+          "observedAt": "2026-10-29T02:30:52Z"
+        }
+      ],
+      "coverage": [
+        {
+          "platform": "Hacker News",
+          "status": "ok",
+          "detail": "Exact-URL matches in up to 100 search results; not exhaustive.",
+          "api": "https://hn.algolia.com/api/v1/search?query=https%3A%2F%2Fwww.nytimes.com%2F2026%2F10%2F13%2Fworld%2Fasia%2Fjapan-cyberattack-artificial-intelligence.html&restrictSearchableAttributes=url&hitsPerPage=100"
+        },
+        {
+          "platform": "Bluesky",
+          "status": "ok",
+          "detail": "Exact embedded links in up to 100 public search results; shortened links and unindexed posts may be missed.",
+          "api": "https://api.bsky.app/xrpc/app.bsky.feed.searchPosts?q=https%3A%2F%2Fwww.nytimes.com%2F2026%2F10%2F13%2Fworld%2Fasia%2Fjapan-cyberattack-artificial-intelligence.html&limit=100&sort=latest"
+        },
+        {
+          "platform": "LinkedIn",
+          "status": "unavailable",
+          "detail": "Article-wide share discovery and metrics are unavailable. LinkedIn is not integrated."
+        },
+        {
+          "platform": "Facebook",
+          "status": "unavailable",
+          "detail": "No authorized analytics or reliable public collector configured; missing results do not mean zero."
+        },
+        {
+          "platform": "Reddit",
+          "status": "unavailable",
+          "detail": "No authorized analytics or reliable public collector configured; missing results do not mean zero."
+        },
+        {
+          "platform": "Publisher readership",
+          "status": "private",
+          "detail": "Publisher pageviews, unique readers and impressions are private. No audience estimate is calculated."
+        },
+        {
+          "platform": "X",
+          "status": "partial",
+          "detail": "Exact expanded article links among up to 10 recent posts from the last 7 days. Native reposts are excluded as duplicate posts; repost and quote counters are shown separately. Older posts and private shares are outside coverage.",
+          "api": "https://api.x.com/2/tweets/search/recent",
+          "observedAt": "2026-10-29T02:30:58Z",
+          "query": "(url:\"https://www.nytimes.com/2026/10/13/world/asia/japan-cyberattack-artificial-intelligence.html\" OR url:\"japan-cyberattack-artificial-intelligence.html\") -is:retweet",
+          "returnedPosts": 0,
+          "verifiedPosts": 0,
+          "unmatchedPostUrls": []
+        }
+      ]
+    },
+    {
+      "id": "url-d84b1304f4dd8497d288d988",
+      "sources": [],
+      "social": [],
+      "coverage": [
+        {
+          "platform": "Hacker News",
+          "status": "ok",
+          "detail": "Exact-URL matches in up to 100 search results; not exhaustive.",
+          "api": "https://hn.algolia.com/api/v1/search?query=https%3A%2F%2Fwww.trendaisecurity.com%2Fen-us%2Fresources-insights%2Fdeep-research%2Fhow-digital-assistants-change-social-engineering&restrictSearchableAttributes=url&hitsPerPage=100"
+        },
+        {
+          "platform": "Bluesky",
+          "status": "ok",
+          "detail": "Exact embedded links in up to 100 public search results; shortened links and unindexed posts may be missed.",
+          "api": "https://api.bsky.app/xrpc/app.bsky.feed.searchPosts?q=https%3A%2F%2Fwww.trendaisecurity.com%2Fen-us%2Fresources-insights%2Fdeep-research%2Fhow-digital-assistants-change-social-engineering&limit=100&sort=latest"
+        },
+        {
+          "platform": "LinkedIn",
+          "status": "unavailable",
+          "detail": "Article-wide share discovery and metrics are unavailable. LinkedIn is not integrated."
+        },
+        {
+          "platform": "Facebook",
+          "status": "unavailable",
+          "detail": "No authorized analytics or reliable public collector configured; missing results do not mean zero."
+        },
+        {
+          "platform": "Reddit",
+          "status": "unavailable",
+          "detail": "No authorized analytics or reliable public collector configured; missing results do not mean zero."
+        },
+        {
+          "platform": "Publisher readership",
+          "status": "private",
+          "detail": "Publisher pageviews, unique readers and impressions are private. No audience estimate is calculated."
+        },
+        {
+          "platform": "Media and syndication",
+          "status": "unavailable",
+          "detail": "No verified source pages registered for this URL yet. Social collection does not provide comprehensive media discovery."
+        },
+        {
+          "platform": "X",
+          "status": "partial",
+          "detail": "Exact expanded article links among up to 10 recent posts from the last 7 days. Native reposts are excluded as duplicate posts; repost and quote counters are shown separately. Older posts and private shares are outside coverage.",
+          "api": "https://api.x.com/2/tweets/search/recent",
+          "observedAt": "2026-10-29T02:30:58Z",
+          "query": "(url:\"https://www.trendaisecurity.com/en-us/resources-insights/deep-research/how-digital-assistants-change-social-engineering\" OR url:\"how-digital-assistants-change-social-engineering\") -is:retweet",
+          "returnedPosts": 0,
+          "verifiedPosts": 0,
+          "unmatchedPostUrls": []
+        }
+      ]
+    }
+  ],
+  "schemaVersion": 1
+}
