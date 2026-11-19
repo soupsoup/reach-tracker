@@ -1,0 +1,14 @@
+[Unit]
+Description=Deploy the newest reach-tracker commit if main changed
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=reach-tracker
+Group=reach-tracker
+WorkingDirectory=/var/www/reach-tracker
+ExecStart=/var/www/reach-tracker/deploy/vps/deploy.sh
+Nice=10
+CPUWeight=20
+IOSchedulingClass=idle
+TimeoutStartSec=10min

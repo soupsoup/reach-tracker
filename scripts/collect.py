@@ -77,7 +77,7 @@ def run():
     articles=json.loads((ROOT/'data/articles.json').read_text())
     # New URLs saved through the public dashboard automatically join scheduled collection.
     # Fail loudly if registry discovery fails; preserve all previously registered articles.
-    registry=json.loads(fetch('https://reach-tracker-jade.vercel.app/api/registry'))
+    registry=json.loads(fetch('https://reach-tracker.antderosa.com/api/registry'))
     known={canonical(a['url']) for a in articles}
     for article in registry['articles']:
         if canonical(article['url']) not in known:

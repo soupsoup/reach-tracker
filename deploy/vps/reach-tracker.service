@@ -1,0 +1,24 @@
+[Unit]
+Description=reach-tracker /api handlers (were Vercel functions)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=reach-tracker
+Group=reach-tracker
+WorkingDirectory=/var/www/reach-tracker
+Environment=HOST=127.0.0.1
+Environment=PORT=4424
+Environment=REACH_REGISTRY_DIR=/var/lib/reach-tracker/registry
+ExecStart=/usr/bin/node server/serve-api.js
+Restart=on-failure
+RestartSec=3
+MemoryMax=150M
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/reach-tracker
+
+[Install]
+WantedBy=multi-user.target
